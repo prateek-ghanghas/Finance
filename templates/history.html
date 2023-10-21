@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<h1 id = "bought">Bought</h1>
+    <table class = "table">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in bought  %}
+            <tr>
+                <td class="text-start">{{i["symbol"]}}</td>
+                <td class="text-end">{{i["shares"]}}</td>
+                <td class="text-end">${{i["price"]}}</td>
+                <td class="text-end">{{i["date"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1 id = "sold" >Sold</h1>
+    <table class = "table">
+        <thead>
+
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in sold %}
+            <tr>
+                <td class="text-start">{{i["symbol"]}}</td>
+                <td class="text-end">{{i["shares"]}}</td>
+                <td class="text-end">${{i["price"]}}</td>
+                <td class="text-end">{{i["time"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

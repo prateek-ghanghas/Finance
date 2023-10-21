@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table class = "table table-striped">
+        <thead>
+        <tr>
+            <th scope = "col">Company</th>
+            <th scope = "col">Price</th>
+            <th scope = "col">Symbol</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            {% for key in somedata %}
+
+            <td>{{somedata[key]}}</td>
+
+            {% endfor %}
+        </tr>
+
+        </tbody>
+
+    </table>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+
+{% block main %}
+
+
+ <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th class = "text-start">Symbol</th>
+            <th class = "text-start">Name</th>
+            <th class = "text-end">Shares</th>
+            <th class = "text-end">Price</th>
+            <th class = "text-end">TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in range(length) %}
+        <tr>
+            <td class = "text-start">{{symbol[i]}}</td>
+            <td class = "text-start">{{symbol[i]}}</td>
+            <td class = "text-end">{{shares[i]}}</td>
+            <td class = "text-end">${{'{:0.2f}'.format(price[i])}}</td>
+            <td class = "text-end">${{ '%0.2f'|format((shares[i] * price[i])|float)}} </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+            <td class="border-0 text-end">${{'%0.2f'|format(balance)}}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+            <td class="border-0 w-bold text-end">${{'%0.2f'|format(total)}}</td>
+        </tr>
+    </tfoot>
+
+ </table>
+
+
+
+
+{% endblock %}
